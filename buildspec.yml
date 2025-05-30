@@ -1,12 +1,29 @@
+# buildspec.yml - AWS CodeBuild build specification
+
+version: 0.2
+
 phases:
+  install:
+    # Install phase: install dependencies if needed
+    commands:
+      - echo Installing dependencies...
+      # Example: pip install awscli --upgrade
+  pre_build:
+    # Pre-build phase: preparation steps before build
+    commands:
+      - echo Preparing to validate CloudFormation templates...
+      - ls -al   # List all files for debugging
+      - find .   # Show directory structure for debugging
   build:
+    # Build phase: main build commands
     commands:
       - echo Validating CloudFormation Templates
-      - ls -al
-      - find .
+      # Validate the template in the subdirectory
       - aws cloudformation validate-template --template-body file://cloudformation-pipeline/template.yaml
+      # Validate the template in the root directory
       - aws cloudformation validate-template --template-body file://template.yaml
 artifacts:
+  # Artifacts to be collected after build
   files:
     - cloudformation-pipeline/template.yaml
     - template.yaml
