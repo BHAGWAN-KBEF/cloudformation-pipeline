@@ -7,9 +7,13 @@ phases:
       - pip install awscli
   build:
     commands:
+      - echo Listing files in current directory:
+      - ls -al
+      - echo Listing files recursively:
+      - find .
       - echo Validating CloudFormation Template
-      - aws cloudformation validate-template --template-body file://template.yaml
+      - aws cloudformation validate-template --template-body file://cloudformation-pipeline/template.yaml
 
 artifacts:
   files:
-    - template.yaml
+    - cloudformation-pipeline/template.yaml
