@@ -11,8 +11,8 @@ phases:
       - echo Validating CloudFormation Template
       - ls -al
       - find .
-      - aws cloudformation validate-template --template-body file://cloudformation-pipeline/template.yaml
+      - aws cloudformation validate-template --template-body file://template.yaml
 
 artifacts:
   files:
-    - cloudformation-pipeline/template.yaml
+    - template.yaml
