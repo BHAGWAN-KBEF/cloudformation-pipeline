@@ -1,8 +1,7 @@
-AWSTemplateFormatVersion: '2010-09-09'
-Description: Basic S3 bucket
-
 Resources:
-  S3Bucket:
+  MyBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: my-conformity-test-bucket
+      Tags:
+        - Key: Purpose
+          Value: PipelineTriggerTest
