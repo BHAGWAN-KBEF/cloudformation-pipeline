@@ -10,7 +10,7 @@ phases:
       - echo Listing files in current directory:
       - ls -al
       - echo Listing files recursively:
-      - find .
+      - ls -R .
       - echo Validating CloudFormation Template
       - aws cloudformation validate-template --template-body file://cloudformation-pipeline/template.yaml
 
